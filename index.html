@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAHIL — Video Editor Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Unbounded:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --bg:#05080d;--bg2:#09121b;--glass:rgba(255,255,255,.055);
+ --line:rgba(255,255,255,.12);--line2:rgba(101,230,255,.36);
+ --purple:#00b8ff;--purple2:#0877ff;--purple3:#65e6ff;
+ --text:#fff;--muted:rgba(255,255,255,.62);--faint:rgba(255,255,255,.42)
+}
+html{scroll-behavior:smooth}
+body{min-height:100vh;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-3;background:
+radial-gradient(1000px 560px at 82% -8%,rgba(0,184,255,.22),transparent 62%),
+radial-gradient(850px 520px at -8% 42%,rgba(8,119,255,.17),transparent 62%),
+radial-gradient(700px 520px at 58% 105%,rgba(101,230,255,.12),transparent 62%),#05080d}
+body:after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.14;background-image:
+linear-gradient(rgba(255,255,255,.55) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.55) 1px,transparent 1px);
+background-size:72px 72px;mask-image:radial-gradient(ellipse at 50% 28%,#000 35%,transparent 82%)}
+body:before{filter:saturate(1.05)}
+/* Textured cinematic surface */
+body{background-image:
+radial-gradient(circle at 20% 20%,rgba(255,255,255,.025) 0 1px,transparent 1px),
+radial-gradient(circle at 80% 70%,rgba(101,230,255,.025) 0 1px,transparent 1px);
+background-size:7px 7px,11px 11px}
+body::marker{display:none}
+.section::before,.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.035;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.8) 0,rgba(255,255,255,.8) 1px,transparent 1px,transparent 4px);mix-blend-mode:screen}
+.section,.hero{position:relative}
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.075),rgba(0,184,255,.035)),radial-gradient(circle at 20% 15%,rgba(255,255,255,.035),transparent 35%);background-size:auto,9px 9px}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+.container{width:min(1180px,calc(100% - 40px));margin:auto}
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.07),rgba(0,184,255,.04));border:1px solid var(--line);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 24px 90px rgba(0,0,0,.32);backdrop-filter:blur(18px)}
+.eyebrow{color:#8defff;font-size:12px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;margin-bottom:14px}
+.heading{font-family:Anton,sans-serif;font-size:clamp(48px,7vw,88px);font-weight:400;line-height:.92;letter-spacing:.02em}
+.heading span{color:var(--purple3);text-shadow:0 0 24px rgba(101,230,255,.48)}
+.muted{color:var(--muted);line-height:1.75}
+.section{padding:104px 0}
+header{position:fixed;top:18px;left:0;right:0;z-index:50}
+.nav{width:min(1180px,calc(100% - 34px));margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 14px 12px 20px;border-radius:999px;background:rgba(7,7,10,.72);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(20px);box-shadow:0 20px 70px rgba(0,0,0,.3)}
+.brand{font-family:Anton,sans-serif;font-size:26px;letter-spacing:.08em}.brand span{color:var(--purple3)}
+.navlinks{display:flex;gap:6px}.navlinks a{padding:10px 13px;border-radius:999px;color:rgba(255,255,255,.62);font-size:13px;font-weight:700;transition:.25s}.navlinks a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.hire{display:inline-flex;align-items:center;gap:8px;border-radius:999px;background:var(--purple);padding:11px 18px;font-size:14px;font-weight:800;box-shadow:0 0 30px rgba(0,184,255,.36);transition:.25s}.hire:hover{background:var(--purple3);transform:translateY(-1px)}
+
+.hero{min-height:100vh;padding:150px 0 90px;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:58px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(101,230,255,.34);background:rgba(0,184,255,.1);color:#d7f9ff;border-radius:999px;padding:8px 13px;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.spark{width:8px;height:8px;border-radius:999px;background:var(--purple3);box-shadow:0 0 18px var(--purple3)}
+.hero-name{font-family:Sora,sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(56px,9.5vw,124px);line-height:1;letter-spacing:-.035em;margin:17px 0 18px;background:linear-gradient(135deg,#fff 0%,#d7f9ff 35%,#65e6ff 65%,#8b5cf6 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 44px rgba(0,184,255,.4);animation:letterIn .8s both}
+@keyframes letterIn{from{opacity:0;transform:translateY(28px) scale(.96)}to{opacity:1;transform:none}}
+.underline{width:min(520px,72%);height:5px;border-radius:999px;background:linear-gradient(90deg,transparent,var(--purple),var(--purple3),var(--purple),transparent);box-shadow:0 0 24px rgba(0,184,255,.55)}
+.role{margin-top:24px;font-size:clamp(20px,3vw,30px);font-weight:800;color:rgba(255,255,255,.88)}
+.tagline{max-width:650px;margin-top:20px;color:var(--muted);font-size:16px;line-height:1.8}
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 22px;font-weight:800;font-size:14px;transition:.25s}
+.btn-primary{background:var(--purple);box-shadow:0 0 34px rgba(0,184,255,.38)}.btn-primary:hover{background:var(--purple3);transform:translateY(-2px)}
+.btn-ghost{border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);color:#fff}.btn-ghost:hover{border-color:rgba(101,230,255,.55);background:rgba(255,255,255,.08)}
+.trust{display:flex;align-items:center;gap:18px;margin-top:34px;color:var(--faint);font-size:13px}.dots{display:flex;margin-left:2px}.dots i{width:38px;height:38px;border-radius:999px;border:2px solid #05080d;margin-left:-8px;background:linear-gradient(135deg,var(--c),#1a1224)}
+
+.visual{position:relative;animation:floatCard 5s ease-in-out infinite}.phone{position:relative;max-width:460px;margin-left:auto;aspect-ratio:1/1;border-radius:34px;overflow:hidden;border:1px solid var(--line2);background:#071018;box-shadow:0 0 70px rgba(0,184,255,.35),0 35px 90px rgba(0,0,0,.55);transition:border-radius 1.1s cubic-bezier(.22,1,.36,1),transform .12s ease-out}
+.phone.circle{border-radius:50%}.phone img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.phone:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(7,7,10,.78));pointer-events:none}
+.play-badge{position:absolute;left:28px;bottom:28px;z-index:2;display:flex;align-items:center;gap:12px;border-radius:999px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.14);padding:12px 16px;backdrop-filter:blur(12px);font-weight:800}
+.play-badge span{display:grid;place-items:center;width:42px;height:42px;border-radius:999px;background:var(--purple);box-shadow:0 0 24px rgba(0,184,255,.7)}
+.mini-card{position:absolute;right:-18px;top:42px;width:180px;border-radius:22px;padding:18px;z-index:3}.mini-card b{font-family:Anton,sans-serif;font-size:42px;font-weight:400}.mini-card p{color:var(--faint);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+
+.section-top{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}.section-top .muted{max-width:440px}
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:62px;align-items:start}
+.point-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}.point{display:flex;align-items:center;gap:12px;border-radius:18px;padding:15px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.78);font-weight:700}.check{display:grid;place-items:center;width:25px;height:25px;border-radius:999px;background:rgba(0,184,255,.18);border:1px solid rgba(101,230,255,.42);color:#d7f9ff}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}.stat{border-radius:24px;padding:22px}.stat b{font-family:Anton,sans-serif;font-size:48px;font-weight:400}.stat p{margin-top:4px;color:var(--faint);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}.filter{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:rgba(255,255,255,.66);border-radius:999px;padding:10px 15px;font-weight:800;font-size:12px;letter-spacing:.08em;cursor:pointer;transition:.25s}.filter.active,.filter:hover{background:var(--purple);border-color:var(--purple3);color:#fff;box-shadow:0 0 26px rgba(0,184,255,.32)}
+.work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.work-card{position:relative;overflow:hidden;border-radius:28px;cursor:pointer;aspect-ratio:9/16;background:#071018;border:1px solid rgba(255,255,255,.06);transition:.28s}.work-card:hover{border-color:rgba(101,230,255,.35);transform:translateY(-5px);box-shadow:0 22px 55px rgba(0,0,0,.35)}.work-card.hide{display:none}
+.thumb{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(135deg,#0c1c28,#071018 55%,#092b42)}
+.work-card:nth-child(2) .thumb{background:linear-gradient(145deg,#0b2940,#071018 55%,#07547a)}
+.work-card:nth-child(3) .thumb{background:linear-gradient(145deg,#071018,#0a3145 55%,#111)}
+.work-card:nth-child(4) .thumb{background:linear-gradient(145deg,#073e5c,#071018 60%,#0c1c28)}
+.work-card:nth-child(5) .thumb{background:linear-gradient(145deg,#120e1c,#087ca8 60%,#071018)}
+.work-card:nth-child(6) .thumb{background:linear-gradient(145deg,#241235,#071018 50%,#0b3850)}
+.work-card:nth-child(7) .thumb{background:linear-gradient(145deg,#071018,#07506d 52%,#0b202d)}
+.thumb:before{content:"";width:55%;aspect-ratio:9/12;border:1px solid rgba(255,255,255,.23);border-radius:18px;background:linear-gradient(150deg,rgba(255,255,255,.13),transparent 50%);box-shadow:0 0 70px rgba(0,184,255,.25);transform:rotate(-4deg)}
+.thumb:after{content:"▶";position:absolute;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.58);border:1px solid rgba(255,255,255,.22);font-size:17px;padding-left:3px}
+.work-card:nth-child(even) .thumb:before{transform:rotate(5deg);border-color:rgba(141,239,255,.32)}
+.work-card:nth-child(3n) .thumb:before{transform:rotate(1deg);width:48%}
+.work-info{position:absolute;left:18px;right:18px;bottom:16px;z-index:2}.work-cat{color:#8defff;font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}.work-title{font-size:18px;font-weight:900}.work-desc{color:rgba(255,255,255,.6);font-size:13px;line-height:1.55;margin-top:7px}
+.work-card>.shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,7,10,.95),rgba(7,7,10,.02) 48%,rgba(7,7,10,.38));z-index:1}
+.mute{position:absolute;top:15px;right:15px;z-index:4;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.58);color:#fff;display:grid;place-items:center}
+
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.service{padding:24px;border-radius:24px;min-height:175px}.service b{font-family:Space Grotesk;font-size:18px}.service p{font-size:13px;color:var(--muted);line-height:1.7;margin-top:9px}.num{color:#8defff;font-size:10px;font-weight:900;letter-spacing:.15em}
+.experience{display:grid;grid-template-columns:.75fr 1.25fr;gap:18px}.exp-big{padding:32px;border-radius:28px}.exp-big h3{font-family:Anton;font-weight:400;font-size:64px;line-height:.9;margin:20px 0;color:var(--purple3)}.exp-big p{color:var(--muted);font-size:13px}.timeline{padding:30px;border-radius:28px}.item{display:grid;grid-template-columns:155px 1fr;gap:22px;padding:0 0 28px;margin-bottom:28px;border-bottom:1px solid var(--line)}.item:last-child{border:0;margin:0;padding:0}.date{color:#8defff;font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.item h3{font-family:Space Grotesk;font-size:20px}.item p{color:var(--muted);font-size:13px;margin-top:7px;line-height:1.7}
+.tools-grid{display:flex;flex-wrap:wrap;gap:12px}.tool-badge{padding:15px 19px;border-radius:18px;font-weight:800;font-size:13px}.tool-badge:first-child{border-color:var(--line2);color:#d7f9ff;background:rgba(0,184,255,.12)}
+.cta{padding:55px;border-radius:30px;text-align:center}.cta h2{font-family:Unbounded;font-size:clamp(34px,6vw,70px);line-height:1.02;margin:10px auto 18px}.cta p{max-width:600px;margin:auto;color:var(--muted);font-size:14px}.cta .actions{justify-content:center}
+footer{padding:34px 0 45px}.footer-row{display:flex;justify-content:space-between;align-items:center;color:var(--faint);font-size:12px}.footer-row .brand{font-size:22px}
+.reveal{opacity:0;transform:translateY(36px);transition:.8s ease}.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){.navlinks{display:none}.hero-grid,.about-grid,.experience{grid-template-columns:1fr}.hero-art{min-height:500px}.phone{margin:auto}.services{grid-template-columns:repeat(2,1fr)}.work-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.container{width:calc(100% - 24px)}.hero{padding-top:125px}.hero-name{font-size:62px}.hero-grid{gap:25px}.hero-art{min-height:390px}.phone{width:85%}.mini-card{right:-3px;top:25px;width:145px}.mini-card b{font-size:34px}.point-grid,.stats,.services,.work-grid{grid-template-columns:1fr}.section{padding:76px 0}.section-top{display:block}.section-top .muted{margin-top:12px}.item{grid-template-columns:1fr;gap:7px}.cta{padding:38px 20px}.footer-row{align-items:flex-start;gap:12px;flex-direction:column}}
+
+/* V5 editorial alignment pass */
+.hero-grid{grid-template-columns:.88fr 1.12fr;gap:78px}
+.hero-copy-wrap{padding-top:18px}
+.visual{order:2;justify-self:end;width:min(510px,100%)}
+.phone{width:430px;margin-right:38px;margin-left:auto;transform:rotate(2deg)}
+.mini-card{right:-4px;top:24px;transform:rotate(-4deg)}
+.hero .trust{padding-left:8px}
+
+.section-top{align-items:flex-start}
+.section-top>div{padding-left:8px}
+.section-top>.muted{padding-top:12px}
+.about-grid{grid-template-columns:1.15fr .85fr;gap:34px}
+.about-grid>div:first-child{padding:12px 24px 0 0}
+.about-grid .glass{transform:translateY(24px)}
+.point-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.stats{grid-template-columns:repeat(3,1fr)}
+
+.work-grid{grid-template-columns:repeat(12,1fr);align-items:start}
+.work-card:nth-child(1){grid-column:1 / span 3;margin-top:28px}
+.work-card:nth-child(2){grid-column:4 / span 3;margin-top:0}
+.work-card:nth-child(3){grid-column:7 / span 3;margin-top:48px}
+.work-card:nth-child(4){grid-column:10 / span 3;margin-top:14px}
+.work-card:nth-child(5){grid-column:2 / span 3;margin-top:34px}
+.work-card:nth-child(6){grid-column:5 / span 3;margin-top:0}
+.work-card:nth-child(7){grid-column:8 / span 3;margin-top:42px}
+
+.services{grid-template-columns:repeat(3,1fr)}
+.service:nth-child(2){transform:translateY(24px)}
+.service:nth-child(5){transform:translateY(24px)}
+.service:nth-child(7){grid-column:2}
+.experience{grid-template-columns:1.15fr .85fr;gap:34px}
+.exp-big{transform:translateY(20px)}
+.timeline{transform:translateY(-4px)}
+.tools-grid{max-width:900px;margin-left:8px}
+.tool-badge:nth-child(2n){transform:translateY(8px)}
+.cta{text-align:left;padding:64px 70px}
+.cta p{margin-left:0}
+.cta .actions{justify-content:flex-start}
+
+@media(max-width:900px){
+ .hero-grid{grid-template-columns:1fr;gap:35px}
+ .visual{order:2;justify-self:center}
+ .phone{margin:auto;transform:none}
+ .about-grid,.experience{grid-template-columns:1fr}
+ .about-grid .glass{transform:none}
+ .services{grid-template-columns:repeat(2,1fr)}
+ .service:nth-child(2),.service:nth-child(5),.service:nth-child(7){transform:none}
+ .work-grid{grid-template-columns:repeat(2,1fr)}
+ .work-card:nth-child(n){grid-column:auto;margin-top:0}
+ .service:nth-child(7){grid-column:auto}
+}
+@media(max-width:600px){
+ .hero-grid{gap:20px}
+ .visual{width:100%}
+ .phone{width:86%}
+ .about-grid>div:first-child{padding:0}
+ .point-grid,.stats{grid-template-columns:1fr}
+ .work-grid{grid-template-columns:1fr}
+ .work-card:nth-child(n){grid-column:auto}
+ .services{grid-template-columns:1fr}
+ .cta{padding:42px 24px}
+}
+
+</style>
+</head>
+<body>
+<header><nav class="nav">
+<a class="brand" href="#home">SAH<span>IL</span></a>
+<div class="navlinks"><a href="#about">About</a><a href="#work">Work</a><a href="#services">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+<a class="hire" href="#contact">LET'S WORK ↗</a>
+</nav></header>
+
+<main>
+<section class="hero" id="home">
+<div class="container hero-grid">
+<div class="reveal">
+<div class="pill"><span class="spark"></span> Available for creative projects</div>
+<h1 class="hero-name">SAHIL</h1>
+<div class="underline"></div>
+<div class="role">Video Editor · Visual Storyteller</div>
+<p class="tagline">I create engaging edits across AI videos, reels, shorts, animation, documentaries, product videos and colour grading — with a focus on making every frame count.</p>
+<div class="actions"><a class="btn btn-primary" href="#work">VIEW MY WORK ↗</a><a class="btn btn-ghost" href="#contact">CONTACT ME</a></div>
+<div class="trust"><div class="dots"><i style="--c:#8b5cf6"></i><i style="--c:#65e6ff"></i><i style="--c:#5b21b6"></i></div><span>Professional + freelance editing experience</span></div>
+</div>
+<div class="visual reveal">
+<div class="hero-copy-wrap"></div>
+<div class="phone" id="phoneShape"><img src="assets/profile.png" alt="Sahil — Video Editor"><div class="play-badge"><span>▶</span><div>SAHIL<br><small style="color:var(--faint);font-size:10px">VIDEO EDITOR</small></div></div></div>
+<div class="mini-card glass"><b>05+</b><p>Months<br>experience</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="about"><div class="container">
+<div class="section-top reveal"><div><div class="eyebrow">01 — About Me</div><h2 class="heading">CREATIVE <span>BY NATURE.</span></h2></div><p class="muted">I’m Sahil, a video editor passionate about turning creative ideas into polished, engaging visual stories.</p></div>
+<div class="about-grid">
+<div class="reveal"><p class="muted">Whether it’s a short promotional clip, social-first content, product video or longer-form storytelling, I focus on visual appeal, pacing and delivering work that fits the client’s needs.</p>
+<div class="point-grid"><div class="point"><span class="check">✓</span>Social Media Content</div><div class="point"><span class="check">✓</span>AI-Powered Videos</div><div class="point"><span class="check">✓</span>Storytelling</div><div class="point"><span class="check">✓</span>Visual Effects</div></div>
+<div class="stats"><div class="stat glass"><b>05+</b><p>Months Experience</p></div><div class="stat glass"><b>07</b><p>Editing Areas</p></div><div class="stat glass"><b>02</b><p>Languages</p></div></div></div>
+<div class="glass" style="padding:30px;border-radius:28px"><div class="eyebrow">Quick Profile</div><div class="point-grid" style="margin-top:15px"><div class="point"><span class="check">→</span><div><small style="display:block;color:var(--faint)">Education</small>Bachelor of Arts · 2nd Year</div></div><div class="point"><span class="check">→</span><div><small style="display:block;color:var(--faint)">Location</small>Chandigarh</div></div><div class="point"><span class="check">→</span><div><small style="display:block;color:var(--faint)">Languages</small>English · Hindi</div></div><div class="point"><span class="check">→</span><div><small style="display:block;color:var(--faint)">Birthday</small>24 January 2005</div></div></div></div>
+</div></div></section>
+
+<section class="section" id="work"><div class="container">
+<div class="section-top reveal"><div><div class="eyebrow">02 — Selected Work</div><h2 class="heading">EDITED <span>TO MOVE.</span></h2></div><p class="muted">The same vertical 9:16 portfolio presentation style as the reference portfolio, with Sahil’s own categories and content.</p></div>
+<div class="filters reveal"><button class="filter active" data-filter="all">ALL</button><button class="filter" data-filter="ai">AI VIDEOS</button><button class="filter" data-filter="grading">COLOUR</button><button class="filter" data-filter="reels">REELS</button><button class="filter" data-filter="shorts">SHORTS</button><button class="filter" data-filter="animation">ANIMATION</button><button class="filter" data-filter="documentary">DOCUMENTARY</button><button class="filter" data-filter="product">PRODUCT</button></div>
+<div class="work-grid">
+<article class="work-card reveal" data-cat="ai"><div class="thumb"></div><div class="shade"></div><button class="mute">🔇</button><div class="work-info"><div class="work-cat">01 · AI Videos</div><div class="work-title">AI-Powered Visuals</div><div class="work-desc">AI tools, automation, voiceovers and smart editing.</div></div></article>
+<article class="work-card reveal" data-cat="grading"><div class="thumb"></div><div class="shade"></div><button class="mute">🔇</button><div class="work-info"><div class="work-cat">02 · Colour</div><div class="work-title">Cinematic Grade</div><div class="work-desc">Professional correction and cinematic grading.</div></div></article>
+<article class="work-card reveal" data-cat="reels"><div class="thumb"></div><div class="shade"></div><button class="mute">🔇</button><div class="work-info"><div class="work-cat">03 · Reels</div><div class="work-title">Instagram Reels</div><div class="work-desc">Short-form edits with strong pacing and hooks.</div></div></article>
+<article class="work-card reveal" data-cat="shorts"><div class="thumb"></div><div class="shade"></div><button class="mute">🔇</button><div class="work-info"><div class="work-cat">04 · Shorts</div><div class="work-title">YouTube Shorts</div><div class="work-desc">Fast-paced edits built for attention.</div></div></article>
+<article class="work-card reveal" data-cat="animation"><div class="thumb"></div><div class="shade"></div><button class="mute">🔇</button><div class="work-info"><div class="work-cat">05 · Animation</div><div class="work-title">Motion & Animation</div><div class="work-desc">Motion graphics, animation and visual effects.</div></div></article>
+<article class="work-card reveal" data-cat="documentary"><div class="thumb"></div><div class="shade"></div><button class="mute">🔇</button><div class="work-info"><div class="work-cat">06 · Documentary</div><div class="work-title">Documentary Story</div><div class="work-desc">Storytelling, sound design and smooth transitions.</div></div></article>
+<article class="work-card reveal" data-cat="product"><div class="thumb"></div><div class="shade"></div><button class="mute">🔇</button><div class="work-info"><div class="work-cat">07 · Product</div><div class="work-title">Product Videos</div><div class="work-desc">Promotional and e-commerce focused edits.</div></div></article>
+</div></div></section>
+
+<section class="section" id="services"><div class="container">
+<div class="section-top reveal"><div><div class="eyebrow">03 — Skills</div><h2 class="heading">WHAT I <span>EDIT.</span></h2></div><p class="muted">Seven core editing areas from Sahil’s CV, presented as portfolio capabilities.</p></div>
+<div class="services"><div class="service glass reveal"><div class="num">01</div><b>AI Videos</b><p>AI-powered videos using automation, voiceovers and smart editing.</p></div><div class="service glass reveal"><div class="num">02</div><b>Colour Grading</b><p>Colour correction and cinematic grading for stronger visual mood.</p></div><div class="service glass reveal"><div class="num">03</div><b>Reels & Shorts</b><p>Fast, engaging short-form edits with visual hooks.</p></div><div class="service glass reveal"><div class="num">04</div><b>Animation</b><p>Motion graphics, animation and visual effects.</p></div><div class="service glass reveal"><div class="num">05</div><b>Documentary</b><p>Story-led edits with sound design and smooth transitions.</p></div><div class="service glass reveal"><div class="num">06</div><b>Product Videos</b><p>Professional promotional and e-commerce video content.</p></div><div class="service glass reveal"><div class="num">07</div><b>Creative Editing</b><p>Pacing, composition and storytelling focused on the audience.</p></div></div>
+</div></section>
+
+<section class="section" id="experience"><div class="container">
+<div class="section-top reveal"><div><div class="eyebrow">04 — Experience</div><h2 class="heading">THE <span>JOURNEY.</span></h2></div><p class="muted">Professional digital-team experience combined with freelance work across different client needs.</p></div>
+<div class="experience"><div class="exp-big glass reveal"><div class="eyebrow">CURRENT ROLE</div><h3>VIDEO<br>EDITOR</h3><p>Focused on social media, internal content, promotional edits and visual storytelling.</p></div><div class="timeline glass reveal"><div class="item"><div class="date">SEP 2025 — FEB 2026<br>5 MONTHS</div><div><h3>Digital Team — Medical Company</h3><p>Worked as a Video Editor in the digital team, responsible for editing videos for social media, internal use and promotional purposes.</p></div></div><div class="item"><div class="date">FREELANCE<br>VIDEO EDITOR</div><div><h3>Freelance Video Editor</h3><p>Worked with various clients on reels, shorts, documentaries, product videos and other content according to client requirements.</p></div></div></div></div>
+</div></section>
+
+<section class="section"><div class="container">
+<div class="section-top reveal"><div><div class="eyebrow">05 — Tools</div><h2 class="heading">THE <span>TOOLKIT.</span></h2></div><p class="muted">A flexible editing workflow that combines conventional editing with modern AI-assisted production.</p></div>
+<div class="tools-grid"><span class="tool-badge glass reveal">CapCut</span><span class="tool-badge glass reveal">AI Video Tools</span><span class="tool-badge glass reveal">Voiceover Workflows</span><span class="tool-badge glass reveal">Smart Editing</span><span class="tool-badge glass reveal">Colour Grading</span><span class="tool-badge glass reveal">Motion Graphics</span><span class="tool-badge glass reveal">Visual Effects</span><span class="tool-badge glass reveal">Social Media Editing</span></div>
+</div></section>
+
+<section class="section" id="contact"><div class="container"><div class="cta glass reveal">
+<div class="eyebrow">06 — Contact</div><h2>LET'S MAKE<br><span>SOMETHING WORTH WATCHING.</span></h2><p>Have a reel, product video, AI concept, documentary or creative project? Let’s turn the idea into an edit.</p>
+<div class="actions"><a class="btn btn-primary" href="mailto:sahilkumar400001@gmail.com">EMAIL ME ↗</a><a class="btn btn-ghost" href="tel:7717330907">CALL 7717330907</a></div>
+</div></div></section>
+</main>
+<footer><div class="container footer-row"><div class="brand">SAH<span>IL</span></div><div>© 2026 SAHIL — Video Editor</div></div></footer>
+
+<script>
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("in")}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(e=>io.observe(e));
+
+const filters=document.querySelectorAll(".filter"), cards=document.querySelectorAll(".work-card");
+filters.forEach(f=>f.addEventListener("click",()=>{
+ filters.forEach(x=>x.classList.remove("active"));f.classList.add("active");
+ const selected=f.dataset.filter;
+ cards.forEach(c=>c.classList.toggle("hide",selected!=="all"&&c.dataset.cat!==selected));
+}));
+
+const phone=document.getElementById("phoneShape");
+if(window.matchMedia("(hover:hover) and (pointer:fine)").matches){
+ phone.addEventListener("mousemove",e=>{
+   const r=phone.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)/(r.width/2),y=(e.clientY-r.top-r.height/2)/(r.height/2);
+   phone.style.transform=`perspective(900px) rotateX(${-y*5}deg) rotateY(${x*5}deg) scale(1.02)`;
+ });
+ phone.addEventListener("mouseleave",()=>phone.style.transform="");
+}
+window.addEventListener("scroll",()=>phone.classList.toggle("circle",window.scrollY>600),{passive:true});
+</script>
+</body>
+</html>
